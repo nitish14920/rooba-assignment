@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import LeftSection from "./components/event-component/LeftSection.tsx";
+import "./App.css";
+import RightSection from "./components/event-component/RightSection.tsx";
+import UpwardScrollText from "./components/event-component/VerticalScrollText.tsx";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LeftSection />
+      <UpwardScrollText
+        text="Event: Oasis Bus tour, JLN Stadium, Delhi * Collection Live"
+        speed={7}
+      />
+
+      <RightSection />
     </div>
   );
 }
