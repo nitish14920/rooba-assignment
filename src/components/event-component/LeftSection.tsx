@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CarouselAutoplay from "./CarouselAutoplay.tsx";
 import { Radio, RadioChangeEvent } from "antd";
 
@@ -6,6 +6,14 @@ const LeftSection = () => {
   const onChange = (e: RadioChangeEvent) => {
     console.log(`radio checked:${e.target.value}`);
   };
+
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  }, [window.innerWidth]);
+  console.log(window.innerWidth, "innerWidth");
+
   return (
     <div className="leftSection">
       <img className="astrixImg" alt="img" src="astrix.png" />
@@ -19,7 +27,11 @@ const LeftSection = () => {
       </div>
 
       <div className="radioButtonContainer">
-        <Radio.Group onChange={onChange} defaultValue="a">
+        <Radio.Group
+          onChange={onChange}
+          defaultValue="a"
+          size={screenWidth < 600 ? "small" : "large"}
+        >
           <Radio.Button value="a">Events</Radio.Button>
           <Radio.Button value="b">Collections</Radio.Button>
         </Radio.Group>

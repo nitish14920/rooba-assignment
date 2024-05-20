@@ -4,7 +4,7 @@ import React from "react";
 const RightSection = () => {
   return (
     <div className="rightSection">
-      <div style={{ marginTop: "40px", marginBottom: "60px" }}>
+      <div style={{ marginTop: "20px", marginBottom: "30px" }}>
         <h2>Explore youre First</h2>
         <h2>Event</h2>
       </div>
@@ -22,15 +22,15 @@ const RightSection = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: "30vh",
+          height: "25vh",
           alignItems: "center",
         }}
       >
-        <img src="image1.png" alt="" height={"150px"} />
+        <img src="image1.png" alt="" height={"130px"} />
       </div>
 
       <div className="rightFooter">
-        <img height={100} src="LinkedinQR.png" alt="linkedin" />
+        <img height={60} src="LinkedinQR.png" alt="linkedin" />
         <Button type="primary">Join Waitlist</Button>
       </div>
     </div>

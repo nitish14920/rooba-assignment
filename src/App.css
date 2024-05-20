@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: start;
+  overflow: hidden;
 }
 .leftSection {
-  height: 98vh;
+  height: 100vh;
   width: 60%;
   background: #15181b;
   color: white;
@@ -27,31 +28,68 @@
   z-index: 1; /* Lower z-index to place behind CarouselAutoplay */
 }
 .bgText1 {
-  top: 10%; /* Adjust positioning as needed */
+  top: 5%; /* Adjust positioning as needed */
   left: 5%;
 }
 
 .bgText2 {
-  top: 35%; /* Adjust positioning as needed */
+  top: 40%; /* Adjust positioning as needed */
   left: 5%;
 }
 .oneText {
   top: 20%;
 }
 .twoText {
-  top: 45%;
+  top: 55%;
 }
 .carouselContainer {
   position: relative;
   z-index: 2; /* Higher z-index to place CarouselAutoplay in front */
 }
 .carosuelImg {
-  width: 500px !important;
-  height: 600px;
-  padding-left: 200px;
+  width: 400px !important;
+  height: 350px;
+  padding-left: 130px;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .carosuelImg {
+    width: 150px !important;
+    height: auto;
+    padding-left: 250px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .carosuelImg {
+    width: 300px !important;
+    height: 300px;
+    padding-left: 20px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .carosuelImg {
+    width: 350px !important;
+    height: 350px;
+    padding-left: 50px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .carosuelImg {
+    width: 380px !important;
+    height: 380px;
+    padding-left: 80px;
+  }
+}
+
 .radioButtonContainer {
-  margin-left: 400px;
+  margin-left: 200px;
   > div {
     color: #15181b !important;
 
@@ -69,6 +107,7 @@
     }
   }
 }
+
 .marquee-container {
   height: 50px; /* Adjust based on your need */
   overflow: hidden;
@@ -99,7 +138,7 @@
 }
 
 .rightSection {
-  height: 98vh;
+  height: 100vh;
   width: 40%;
   background: #15181b;
   color: white;
@@ -116,4 +155,32 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.vertical-scroll-container {
+  height: 100vh;
+  width: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: auto;
+  background-color: #b9a0ff;
+  margin: 0;
+}
+.vertical-scroll-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  animation: scroll 5s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: rotate(180deg) translateY(100%);
+  }
+  100% {
+    transform: rotate(180deg) translateY(-100%);
+  }
 }
