@@ -1,5 +1,14 @@
 import React from "react";
 
+// const electronicsItem = {
+//   name: "Noise Watch 1",
+//   likes: 0,
+//   quantitySold: 0,
+//   description: "New Watch Amoled Display",
+//   features: [],
+//   specifications:{}
+
+// }
 const Categories = () => {
   const initCategories = [
     {
@@ -23,7 +32,7 @@ const Categories = () => {
   // const [categories, setCategories] = useState(initCategories);
 
   return (
-    <div className="flex justify-around w-10/12 bg-green-400 m-auto py-2 ">
+    <div className="flex justify-around  bg-green-400 m-auto py-2 my-4">
       {initCategories.map((item) => {
         return (
           <div className="flex-row cursor-pointer">

@@ -1,10 +1,12 @@
 import React from "react";
+import ImageCarousel from "./Carousel";
 import Categories from "./Categories/Categories";
 
 const Body = () => {
   return (
-    <div className="p-2 bg-gray-300">
+    <div className="px-8 bg-gray-300 py-4">
       <Categories />
+      <ImageCarousel />
     </div>
   );
 };
