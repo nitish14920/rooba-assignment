@@ -1,0 +1,138 @@
+.table {
+  border: 2px solid red;
+  width: 50%;
+}
+.table-row {
+  border: 1px solid green;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}
+
+.box1,
+.box2,
+.box3 {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  margin: 10px;
+  display: inline-block;
+  animation: slide 2s alternate infinite;
+}
+
+.box2 {
+  animation-delay: 1s;
+  background-color: green;
+}
+
+.box3 {
+  animation-delay: 2s;
+}
+
+@keyframes scaleAndRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    background-color: red;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.animated-box {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  animation: scaleAndRotate 4s infinite;
+  will-change: transform;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid lightgray;
+  border-top-color: blue;
+  border-radius: 50%;
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes newSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 10px solid;
+  border-top-color: brown;
+  animation: newSpinner 1s infinite linear;
+}
+
+@keyframes typing {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+.typingParent {
+  background-color: brown;
+}
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: green;
+  writing-mode: vertical-lr;
+  animation: typing 1s infinite linear;
+  text-wrap: wrap;
+}
+
+.vertical-scroll-container {
+  height: 100vh;
+  width: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: auto;
+  background-color: red;
+}
+.vertical-scroll-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  animation: scroll 5s linear infinite;
+  background-color: green;
+}
+
+@keyframes scroll {
+  0% {
+    transform: rotate(180deg) translateY(100%);
+  }
+
+  100% {
+    transform: rotate(180deg) translateY(-100%);
+  }
+}
