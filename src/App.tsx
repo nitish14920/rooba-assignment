@@ -1,16 +1,17 @@
-import Header from "./components/Header/Header";
 import "./App.css";
-import Body from "./components/Body/Body";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
 import React from "react";
+import Register from "./pages/register";
 
 function App() {
   return (
-    <div className="flex-row">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 
