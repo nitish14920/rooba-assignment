@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import config from "../config";
 
 interface RegisterFormData {
   username: string;
@@ -34,9 +35,10 @@ const Register: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission (e.g., validation, API call)
+
     const formDataToSubmit = new FormData();
     formDataToSubmit.append("username", formData.username);
     formDataToSubmit.append("email", formData.email);
@@ -51,6 +53,23 @@ const Register: React.FC = () => {
 
     // Now formDataToSubmit can be sent via a POST request to a server
     console.log("Form data submitted:", formDataToSubmit);
+    console.log("Form data :", formData);
+
+    try {
+      const response = await fetch(`${config.apiUrl}/api/v1/user/register`, {
+        method: "POST",
+        body: formDataToSubmit,
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Form submitted successfully:", result);
+      } else {
+        console.error("Failed to submit form:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
