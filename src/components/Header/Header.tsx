@@ -12,9 +12,15 @@ const Header: React.FC = () => {
         </button>
       </div>
       <div className="flex w-1/3 justify-between border-black border-2">
-        <span className="border-black border-2 cursor-pointer">Products</span>
-        <span className="border-black border-2 cursor-pointer">Wishlist</span>
-        <span className="border-black border-2 cursor-pointer">Cart</span>
+        <a href="#" className="border-black border-2 cursor-pointer">
+          Products
+        </a>
+        <a href="#" className="border-black border-2 cursor-pointer">
+          Wishlist
+        </a>
+        <a href="/viewCart" className="border-black border-2 cursor-pointer">
+          Cart
+        </a>
       </div>
     </div>
   );

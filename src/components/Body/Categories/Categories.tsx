@@ -1,14 +1,5 @@
 import React from "react";
 
-// const electronicsItem = {
-//   name: "Noise Watch 1",
-//   likes: 0,
-//   quantitySold: 0,
-//   description: "New Watch Amoled Display",
-//   features: [],
-//   specifications:{}
-
-// }
 const Categories = () => {
   const initCategories = [
     {

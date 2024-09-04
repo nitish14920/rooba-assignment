@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard";
 import React from "react";
 import Register from "./pages/register";
 import Login from "./pages/Login";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/viewCart" element={<CartPage />} />
       </Routes>
     </Router>
   );
