@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -43,18 +44,18 @@ const Header: React.FC = () => {
       {/* Desktop navigation links */}
       {!isMobileOrTablet && (
         <nav className="flex w-1/3 justify-between border-black border-2">
-          <a href="#" className="border-black border-2 p-2 cursor-pointer">
+          <Link to="#" className="border-black border-2 p-2 cursor-pointer">
             Products
-          </a>
-          <a href="#" className="border-black border-2 p-2 cursor-pointer">
+          </Link>
+          <Link to="#" className="border-black border-2 p-2 cursor-pointer">
             Wishlist
-          </a>
-          <a
-            href="/viewCart"
+          </Link>
+          <Link
+            to="/viewCart"
             className="border-black border-2 p-2 cursor-pointer"
           >
             Cart
-          </a>
+          </Link>
         </nav>
       )}
 
@@ -68,18 +69,18 @@ const Header: React.FC = () => {
             X
           </button>
           <nav className="flex flex-col gap-4 mt-16">
-            <a href="#" className="border-black border-2 p-2 cursor-pointer">
+            <Link to="#" className="border-black border-2 p-2 cursor-pointer">
               Products
-            </a>
-            <a href="#" className="border-black border-2 p-2 cursor-pointer">
+            </Link>
+            <Link to="#" className="border-black border-2 p-2 cursor-pointer">
               Wishlist
-            </a>
-            <a
-              href="/viewCart"
+            </Link>
+            <Link
+              to="/viewCart"
               className="border-black border-2 p-2 cursor-pointer"
             >
               Cart
-            </a>
+            </Link>
           </nav>
         </div>
       )}

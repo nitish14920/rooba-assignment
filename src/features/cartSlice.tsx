@@ -29,16 +29,14 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
 
-      console.log("new Itrem=", newItem);
+      console.log("Attempting to add new item:", newItem);
 
       if (existingItem) {
-        console.log("Existing");
-      }
-
-      if (existingItem) {
+        console.log("Item exists in cart, updating quantity.");
         existingItem.quantity += newItem.quantity;
         existingItem.totalPrice += newItem.price * newItem.quantity;
       } else {
+        console.log("Item does not exist, adding new item to cart.");
         state.items.push({
           ...newItem,
           totalPrice: newItem.price * newItem.quantity,
@@ -48,7 +46,7 @@ const cartSlice = createSlice({
       state.totalQuantity += newItem.quantity;
       state.totalPrice += newItem.price * newItem.quantity;
 
-      console.log("state", state);
+      console.log("Updated cart items:", JSON.stringify(state.items));
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
       const id = action.payload;
