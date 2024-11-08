@@ -6,7 +6,7 @@ import ProductList from "./ProductsSection/ProductList";
 
 const Body = () => {
   return (
-    <div className="px-8 bg-gray-300 py-4">
+    <div className="px-8 bg-gray-100 py-4">
       <Categories />
       <ImageCarousel />
       <ProductList />

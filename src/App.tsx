@@ -5,12 +5,20 @@ import React from "react";
 import Register from "./pages/register";
 import Login from "./pages/Login";
 import CartPage from "./pages/CartPage";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/viewCart" element={<CartPage />} />

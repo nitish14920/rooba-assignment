@@ -1,15 +1,49 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-  // Use media query to determine if the screen is mobile or tablet
+  const navigate = useNavigate();
+
   const isMobileOrTablet = useMediaQuery({ query: "(max-width: 768px)" });
 
   const handleMenuToggle = () => {
     setDrawerOpen(!isDrawerOpen);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/v1/user/logout",
+        {
+          Authorization: localStorage.getItem("accessToken"),
+        },
+        {
+          withCredentials: true, // Ensures cookies are sent with the request
+        }
+      );
+
+      if (response.status === 200) {
+        console.log("Logout successful:", response.data);
+
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("user");
+
+        // Redirect to login page
+        navigate("/login");
+        alert("Logged out successfully");
+      } else {
+        console.error("Logout failed:", response.data);
+        alert("Failed to log out. Please try again.");
+      }
+    } catch (error: any) {
+      console.error("Network error:", error.response?.data || error.message);
+      alert("Network error. Please try again.");
+    }
   };
 
   const closeDrawer = () => {
@@ -19,7 +53,12 @@ const Header: React.FC = () => {
   return (
     <header className="relative flex items-center justify-between w-full border-blue-950 border-1 p-4 bg-slate-950 text-white text-xl">
       {/* Logo */}
-      <div className="border-black border-2">Logo</div>
+      <div
+        onClick={() => navigate("/")}
+        className="border-black border-2 cursor-pointer"
+      >
+        Logo
+      </div>
 
       {/* Desktop search bar and buttons */}
       {!isMobileOrTablet && (
@@ -56,6 +95,7 @@ const Header: React.FC = () => {
           >
             Cart
           </Link>
+          <button onClick={handleLogout}>Logout</button>
         </nav>
       )}
 
@@ -81,6 +121,7 @@ const Header: React.FC = () => {
             >
               Cart
             </Link>
+            <button onClick={handleLogout}>Logout</button>
           </nav>
         </div>
       )}
